@@ -25,7 +25,7 @@ Hierarchy:
                     55858f7443890ed89a54e64e0e4afbdc: !ModelComponent
                         Id: 8eaa6979-cea6-4f83-beb4-74a861117683
                         Model: 01069813-14ed-4449-86a4-1dab5e6a9d9a:Sphere
-                        IsInstanced: false
+                        IsInstanced: true
                         Materials: {}
         -   Entity:
                 Id: 32221e89-d548-487c-b7c5-080d50551e38
