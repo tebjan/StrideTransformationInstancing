@@ -27,6 +27,10 @@ Hierarchy:
                         Model: 01069813-14ed-4449-86a4-1dab5e6a9d9a:Sphere
                         IsInstanced: true
                         Materials: {}
+                        InstanceWorldBuffer: null
+                        InstanceWorldInverseBuffer: null
+                    7fd0b690168ca5411791a78726f8d9fd: !StrideTransformationInstancing.InstanceUpdater,StrideTransformationInstancing
+                        Id: efbac7cd-6ad2-488a-8af3-17df8a124b01
         -   Entity:
                 Id: 32221e89-d548-487c-b7c5-080d50551e38
                 Name: Directional light
@@ -49,8 +53,8 @@ Hierarchy:
                                 Size: Large
                                 DepthRange: {}
                                 PartitionMode: !LightDirectionalShadowMap.PartitionLogarithmic {}
-                                BiasParameters: {}
                                 ComputeTransmittance: false
+                                BiasParameters: {}
                         Intensity: 20.0
         -   Entity:
                 Id: 5730f047-74fe-43bd-beae-2944af9618e3
@@ -108,3 +112,5 @@ Hierarchy:
                         Model: 7798fd92-c2a1-465e-ab68-476dad533c5a:Ground
                         IsInstanced: false
                         Materials: {}
+                        InstanceWorldBuffer: null
+                        InstanceWorldInverseBuffer: null
