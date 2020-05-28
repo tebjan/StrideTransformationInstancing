@@ -1,0 +1,11 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 16
+VisualStudioVersion = 16.0.0.0
+MinimumVisualStudioVersion = 16.0.0.0
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrideTransformationInstancing.Windows", "StrideTransformationInstancing.Windows\StrideTransformationInstancing.Windows.csproj", "{8128D3DA-729C-487D-B36E-DA1ABD3DB80F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrideTransformationInstancing", "StrideTransformationInstancing\StrideTransformationInstancing.csproj", "{6F173CAB-4EFA-41F6-BCE5-0AF64A903E25}"
+EndProject
+Global
+EndGlobal
