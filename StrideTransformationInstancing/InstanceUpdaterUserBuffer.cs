@@ -12,6 +12,8 @@ namespace StrideTransformationInstancing
         Buffer<Matrix> InstanceWorldBuffer;
         Buffer<Matrix> InstanceWorldInverseBuffer;
 
+        protected override int InstanceCountSqrt => 70;
+
         // TODO: make this more easy and clear, improve instancing component to support this better
         protected override void ManageInstancingData()
         {

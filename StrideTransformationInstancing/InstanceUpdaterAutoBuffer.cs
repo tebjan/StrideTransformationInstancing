@@ -9,6 +9,8 @@ namespace StrideTransformationInstancing
 {
     public class InstanceUpdaterAutoBuffer : InstanceUpdaterBase
     {
+        protected override int InstanceCountSqrt => 70;
+
         protected override void ManageInstancingData()
         {
             instancingComponent.UpdateWorldMatrices(instanceWorldTransformations);

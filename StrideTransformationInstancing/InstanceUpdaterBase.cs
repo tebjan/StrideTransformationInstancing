@@ -9,7 +9,7 @@ namespace StrideTransformationInstancing
 {
     public abstract class InstanceUpdaterBase : SyncScript
     {
-        const int icSqrt = 50;
+        protected abstract int InstanceCountSqrt { get; }
         protected InstancingComponent instancingComponent;
         protected Matrix[] instanceWorldTransformations;
 
@@ -22,7 +22,7 @@ namespace StrideTransformationInstancing
 
             Entity.Add(profiler);
 
-            var ic = icSqrt * icSqrt;
+            var ic = InstanceCountSqrt * InstanceCountSqrt;
             instancingComponent = Entity.GetOrCreate<InstancingComponent>();
             instanceWorldTransformations = new Matrix[ic];
         }
@@ -30,11 +30,11 @@ namespace StrideTransformationInstancing
         public override void Update()
         {
             // generate some matrices
-            var offset = icSqrt / 2;
-            for (int i = 0; i < icSqrt; i++)
+            var offset = InstanceCountSqrt / 2;
+            for (int i = 0; i < InstanceCountSqrt; i++)
             {
-                var col = i * icSqrt;
-                for (int j = 0; j < icSqrt; j++)
+                var col = i * InstanceCountSqrt;
+                for (int j = 0; j < InstanceCountSqrt; j++)
                 {
                     var x = i * 1 - offset;
                     var y = j * 1 - offset;
