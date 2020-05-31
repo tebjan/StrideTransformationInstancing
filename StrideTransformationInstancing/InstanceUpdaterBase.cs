@@ -15,19 +15,21 @@ namespace StrideTransformationInstancing
 
         public override void Start()
         {
-            var profiler = new GameProfiler
-            {
-                Enabled = true
-            };
-
-            Entity.Add(profiler);
-
             var ic = InstanceCountSqrt * InstanceCountSqrt;
             instancingComponent = Entity.GetOrCreate<InstancingComponent>();
             instanceWorldTransformations = new Matrix[ic];
         }
 
         public override void Update()
+        {
+            UpdateMatrices();
+
+            Entity.Transform.Scale = new Vector3(0.1f);
+
+            ManageInstancingData();
+        }
+
+        protected void UpdateMatrices()
         {
             // generate some matrices
             var offset = InstanceCountSqrt / 2;
@@ -43,10 +45,6 @@ namespace StrideTransformationInstancing
                     instanceWorldTransformations[col + j] = Matrix.Translation(x, y, z);
                 }
             }
-
-            Entity.Transform.Scale = new Vector3(0.1f);
-
-            ManageInstancingData();
         }
 
         protected abstract void ManageInstancingData();

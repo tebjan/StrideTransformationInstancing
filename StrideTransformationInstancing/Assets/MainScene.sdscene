@@ -13,6 +13,7 @@ Hierarchy:
         - ref!! 2cd3dd9e-0e39-44f0-ac5c-01853096b151
         - ref!! 99908a2c-8bef-49a4-a7a3-73bd2e463f37
         - ref!! 1bcc0994-a32d-4e4b-bc26-3128fb414dfd
+        - ref!! c24582ee-733f-42c1-afb2-c75a08c3b1e2
     Parts:
         -   Folder: null
             Entity:
@@ -142,3 +143,24 @@ Hierarchy:
                         Id: 35496fc8-2f34-48ef-a042-1d217e024325
                         Model: 7798fd92-c2a1-465e-ab68-476dad533c5a:Ground
                         Materials: {}
+        -   Entity:
+                Id: c24582ee-733f-42c1-afb2-c75a08c3b1e2
+                Name: astroBoy_walk
+                Components:
+                    fa2b457ee134effa789bd61243c0f071: !TransformComponent
+                        Id: 89e3dbcf-c5aa-4c28-8f47-67e1a3b3951b
+                        Position: {X: 0.0, Y: 0.0, Z: -1.986536}
+                        Rotation: {X: 0.0, Y: 1.0, Z: 0.0, W: -4.371139E-08}
+                        Scale: {X: 5.0, Y: 5.0, Z: 5.0}
+                        Children: {}
+                    e02c65e6a65cbed279b560210b316d9a: !ModelComponent
+                        Id: 9893860d-3c96-4e8d-b6f5-24f0991628e0
+                        Model: 9996851b-6d40-4c90-a8b7-44cd5cc4e660:AstroBoy/astroBoy_walk
+                        Materials: {}
+                    8ffb515231d9b4c59353fbee9ccd2cac: !StrideTransformationInstancing.AstroBoyAnimation,StrideTransformationInstancing
+                        Id: 84385287-7541-403b-9cc4-b01bceb8ca49
+                        Animations:
+                            68a1f518fc9d1874ee087ac6b236bfd4:
+                                Clip: 445dacc0-4380-4ff2-b70f-43a9bd48e46a:AstroBoy/astroBoy_walk_2
+                                BlendOperation: LinearBlend
+                                StartTime: 0.0

@@ -9,7 +9,7 @@ namespace StrideTransformationInstancing
 {
     public class InstanceUpdaterAutoBuffer : InstanceUpdaterBase
     {
-        protected override int InstanceCountSqrt => 70;
+        protected override int InstanceCountSqrt => 20;
 
         protected override void ManageInstancingData()
         {
