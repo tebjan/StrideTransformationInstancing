@@ -13,7 +13,7 @@ Materials:
     6a8a76d667d32f8f09f3874383358ec3:
         Name: glass
         MaterialInstance:
-            Material: d1ce9d0d-9fe7-40d0-9ca5-f848c7bfa554:AstroBoy/glass
+            Material: null
     1ff1eb6c2fc0b2933d0698c7a0aaf142:
         Name: matte
         MaterialInstance:

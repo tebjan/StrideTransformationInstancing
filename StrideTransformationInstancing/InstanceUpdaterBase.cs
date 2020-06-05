@@ -10,15 +10,17 @@ namespace StrideTransformationInstancing
     public abstract class InstanceUpdaterBase : SyncScript
     {
         protected abstract int InstanceCountSqrt { get; }
-        protected InstancingComponent instancingComponent;
         protected Matrix[] instanceWorldTransformations;
 
         public override void Start()
         {
             var ic = InstanceCountSqrt * InstanceCountSqrt;
-            instancingComponent = Entity.GetOrCreate<InstancingComponent>();
+            var instancingComponent = Entity.GetOrCreate<InstancingComponent>();
+            instancingComponent.Type = GetInstancingType();
             instanceWorldTransformations = new Matrix[ic];
         }
+
+        protected abstract IInstancing GetInstancingType();
 
         public override void Update()
         {

@@ -9,49 +9,59 @@ namespace StrideTransformationInstancing
 {
     public class InstanceUpdaterUserBuffer : InstanceUpdaterBase
     {
+
+        Matrix[] worldInverseTransformations = new Matrix[0];
+
         Buffer<Matrix> InstanceWorldBuffer;
         Buffer<Matrix> InstanceWorldInverseBuffer;
+
+        InstancingUserBuffer instancingUserBuffer;
+
+        protected override IInstancing GetInstancingType()
+        {
+            instancingUserBuffer = new InstancingUserBuffer();
+            return instancingUserBuffer;
+        }
 
         protected override int InstanceCountSqrt => 20;
 
         // TODO: make this more easy and clear, improve instancing component to support this better
         protected override void ManageInstancingData()
         {
-            instancingComponent.WorldMatrices = instanceWorldTransformations;
-            instancingComponent.InstanceCount = instanceWorldTransformations.Length;
+            instancingUserBuffer.InstanceCount = instanceWorldTransformations.Length;
 
             // Make sure inverse matrices are big enough
-            if (instancingComponent.WorldInverseMatrices.Length != instancingComponent.WorldMatrices.Length)
+            if (worldInverseTransformations.Length != instanceWorldTransformations.Length)
             {
-                instancingComponent.WorldInverseMatrices = new Matrix[instancingComponent.WorldMatrices.Length];
+                worldInverseTransformations = new Matrix[instanceWorldTransformations.Length];
             }
 
             // Invert matrices and update bounding box
             var ibb = BoundingBox.Empty;
-            for (int i = 0; i < instancingComponent.WorldMatrices.Length; i++)
+            for (int i = 0; i < instanceWorldTransformations.Length; i++)
             {
-                Matrix.Invert(ref instancingComponent.WorldMatrices[i], out instancingComponent.WorldInverseMatrices[i]);
-                var pos = instancingComponent.WorldMatrices[i].TranslationVector;
+                Matrix.Invert(ref instanceWorldTransformations[i], out worldInverseTransformations[i]);
+                var pos = instanceWorldTransformations[i].TranslationVector;
                 BoundingBox.Merge(ref ibb, ref pos, out ibb);
             }
 
-            instancingComponent.BoundingBox = ibb;
+            instancingUserBuffer.BoundingBox = ibb;
 
             // Manage buffers
-            if (InstanceWorldBuffer == null || InstanceWorldBuffer.ElementCount < instancingComponent.InstanceCount)
+            if (InstanceWorldBuffer == null || InstanceWorldBuffer.ElementCount < instancingUserBuffer.InstanceCount)
             {
                 InstanceWorldBuffer?.Dispose();
                 InstanceWorldInverseBuffer?.Dispose();
 
-                InstanceWorldBuffer = CreateMatrixBuffer(GraphicsDevice, instancingComponent.InstanceCount);
-                instancingComponent.InstanceWorldBuffer = InstanceWorldBuffer;
+                InstanceWorldBuffer = CreateMatrixBuffer(GraphicsDevice, instancingUserBuffer.InstanceCount);
+                instancingUserBuffer.InstanceWorldBuffer = InstanceWorldBuffer;
 
-                InstanceWorldInverseBuffer = CreateMatrixBuffer(GraphicsDevice, instancingComponent.InstanceCount);
-                instancingComponent.InstanceWorldInverseBuffer = InstanceWorldInverseBuffer;
+                InstanceWorldInverseBuffer = CreateMatrixBuffer(GraphicsDevice, instancingUserBuffer.InstanceCount);
+                instancingUserBuffer.InstanceWorldInverseBuffer = InstanceWorldInverseBuffer;
             }
 
-            instancingComponent.InstanceWorldBuffer.SetData(Game.GraphicsContext.CommandList, instancingComponent.WorldMatrices);
-            instancingComponent.InstanceWorldInverseBuffer.SetData(Game.GraphicsContext.CommandList, instancingComponent.WorldInverseMatrices);
+            instancingUserBuffer.InstanceWorldBuffer.SetData(Game.GraphicsContext.CommandList, instanceWorldTransformations);
+            instancingUserBuffer.InstanceWorldInverseBuffer.SetData(Game.GraphicsContext.CommandList, worldInverseTransformations);
 
         }
 

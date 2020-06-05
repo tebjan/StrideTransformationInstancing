@@ -28,7 +28,7 @@ namespace StrideTransformationInstancing
         /// A list of animations to be loaded when the script starts
         /// </summary>
         public readonly List<PlayAnimation> Animations = new List<PlayAnimation>();
-        protected InstancingComponent instancingComponent;
+        protected InstancingUserArray instancingMany;
         protected Matrix[] instanceWorldTransformations;
         int InstanceCount = 20;
 
@@ -48,7 +48,9 @@ namespace StrideTransformationInstancing
             if (animComponent != null)
                 PlayAnimations(animComponent);
 
-            instancingComponent = Entity.GetOrCreate<InstancingComponent>();
+            instancingMany = new InstancingUserArray();
+            var instancingComponent = Entity.GetOrCreate<InstancingComponent>();
+            instancingComponent.Type = instancingMany;
             instanceWorldTransformations = new Matrix[InstanceCount];
         }
 
@@ -65,7 +67,7 @@ namespace StrideTransformationInstancing
                 instanceWorldTransformations[i] = Matrix.Translation(x * 0.5f, y, z);
             }
 
-            instancingComponent.UpdateWorldMatrices(instanceWorldTransformations);
+            instancingMany.UpdateWorldMatrices(instanceWorldTransformations);
         }
 
         private void PlayAnimations(AnimationComponent animComponent)

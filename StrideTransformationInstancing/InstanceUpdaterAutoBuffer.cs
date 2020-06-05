@@ -11,9 +11,17 @@ namespace StrideTransformationInstancing
     {
         protected override int InstanceCountSqrt => 20;
 
+        InstancingUserArray instancingMany;
+
+        protected override IInstancing GetInstancingType()
+        {
+            instancingMany = new InstancingUserArray();
+            return instancingMany;
+        }
+
         protected override void ManageInstancingData()
         {
-            instancingComponent.UpdateWorldMatrices(instanceWorldTransformations);
+            instancingMany.UpdateWorldMatrices(instanceWorldTransformations);
         }
     }
 }
