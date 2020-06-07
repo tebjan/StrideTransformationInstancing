@@ -36,21 +36,17 @@ namespace StrideTransformationInstancing
         {
             ((Game)Game).WindowMinimumUpdateRate.SetMaxFrequency(60);
 
-            var profiler = new GameProfiler
-            {
-                Enabled = true
-            };
-
-            Entity.Add(profiler);
-
             var animComponent = Entity.GetOrCreate<AnimationComponent>();
 
             if (animComponent != null)
                 PlayAnimations(animComponent);
 
             instancingMany = new InstancingUserArray();
-            var instancingComponent = Entity.GetOrCreate<InstancingComponent>();
-            instancingComponent.Type = instancingMany;
+            if (Entity.Get<InstancingComponent>() == null)
+            {
+                var instancingComponent = Entity.GetOrCreate<InstancingComponent>();
+                instancingComponent.Type = instancingMany; 
+            }
             instanceWorldTransformations = new Matrix[InstanceCount];
         }
 

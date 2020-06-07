@@ -12,12 +12,15 @@ Hierarchy:
         - ref!! ba0bacf3-e2af-4655-a659-0046c92e0d36
         - ref!! 2cd3dd9e-0e39-44f0-ac5c-01853096b151
         - ref!! 99908a2c-8bef-49a4-a7a3-73bd2e463f37
+        - ref!! 2117f4ac-e328-4c46-bee2-9a65506526c1
         - ref!! 1bcc0994-a32d-4e4b-bc26-3128fb414dfd
         - ref!! c24582ee-733f-42c1-afb2-c75a08c3b1e2
-        - ref!! 2117f4ac-e328-4c46-bee2-9a65506526c1
+        - ref!! b68ccead-66f1-4b13-86f4-fb97ee735f80
         - ref!! f68516a8-8c0c-485c-9f0a-778a511f6626
         - ref!! b88e21ce-0fdd-4eb0-bad9-0dfd15c1d89f
-        - ref!! b4ef8fd1-f8b1-44a9-9439-3cf03abe6ee1
+        - ref!! c0440939-f12a-408e-a300-0e2f163b640f
+        - ref!! dd4fbb89-c330-4adc-a54b-3575fb516092
+        - ref!! 40790dbf-3da9-4848-82b8-bdd22e81b30c
     Parts:
         -   Folder: null
             Entity:
@@ -40,10 +43,11 @@ Hierarchy:
                 Components:
                     ea7dca85061394540e4a73a71d6f3b13: !TransformComponent
                         Id: 0823ed6a-9aba-4810-88a7-732b49b29fb8
-                        Position: {X: 1.05977452, Y: 1.07024562, Z: -1.88995}
+                        Position: {X: -0.9314739, Y: 0.205670238, Z: -2.38987255}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 0.5, Y: 0.5, Z: 0.5}
-                        Children: {}
+                        Children:
+                            aa0a33eb51cfca3f63b25bc4d2857ca2: ref!! 3df5860d-1283-44e9-8e61-30c0b2d45b05
                     55858f7443890ed89a54e64e0e4afbdc: !ModelComponent
                         Id: 49e5d37f-dbcb-4840-ac82-5aa46645c757
                         Model: 01069813-14ed-4449-86a4-1dab5e6a9d9a:Sphere
@@ -51,8 +55,7 @@ Hierarchy:
                             8f67401846e0322d002a1f7ef819090c~0: 75e2b50e-2138-48ff-a2f1-19911dc4f64f:AstroBoy/Glass
                     1029c6997ce4bb89bf8a10e347fd216f: !InstancingComponent
                         Id: b23c29d5-7346-420b-8330-335045d07dcf
-                        Type: !InstancingEntityTransform
-                            Master: null
+                        Type: !InstancingEntityTransform {}
         -   Entity:
                 Id: 2cd3dd9e-0e39-44f0-ac5c-01853096b151
                 Name: Sphere User Array
@@ -94,6 +97,20 @@ Hierarchy:
                                 BiasParameters: {}
                                 ComputeTransmittance: false
                         Intensity: 20.0
+        -   Folder: Astro Instances
+            Entity:
+                Id: 40790dbf-3da9-4848-82b8-bdd22e81b30c
+                Name: Astro Instance 03
+                Components:
+                    66fa607f7cb579c13aa28d2d26b4f7d2: !TransformComponent
+                        Id: bf40a36d-9979-4834-9230-41cf60952e83
+                        Position: {X: -0.5954908, Y: 0.187501848, Z: -2.40044928}
+                        Rotation: {X: 0.0, Y: 1.0, Z: 0.0, W: -4.371139E-08}
+                        Scale: {X: 5.0, Y: 5.0, Z: 5.0}
+                        Children: {}
+                    37ebd948177158d333cc9705d744a8d5: !InstanceComponent
+                        Id: 9d72d6da-923c-42e4-bf35-8976b2d31387
+                        Master: ref!! 09b50993-b89e-4d3c-8736-8288c29d3f2e
         -   Entity:
                 Id: 5730f047-74fe-43bd-beae-2944af9618e3
                 Name: Skybox
@@ -152,21 +169,53 @@ Hierarchy:
                         KeyboardRotationSpeed: {X: 3.0, Y: 3.0}
                         MouseRotationSpeed: {X: 1.0, Y: 1.0}
                         TouchRotationSpeed: {X: 1.0, Y: 0.7}
-        -   Folder: Sphere Instances
-            Entity:
+                    de14cdb67f7a1cb2d441b958b16465d1: !StrideTransformationInstancing.GameProfiler,StrideTransformationInstancing
+                        Id: b49f0403-3ad8-4f5c-883d-8d2f1540e340
+                        Enabled: true
+                        TextColor: {R: 144, G: 238, B: 144, A: 255}
+                        RefreshTime: 500.0
+                        SortingMode: ByTime
+                        FilteringMode: Fps
+                        ResultPage: 1
+        -   Entity:
                 Id: b4ef8fd1-f8b1-44a9-9439-3cf03abe6ee1
                 Name: Sphere Instance 03
                 Components:
                     81215229fdf37ab6946eab50082bd97b: !TransformComponent
                         Id: 3df5860d-1283-44e9-8e61-30c0b2d45b05
-                        Position: {X: 3.14559031, Y: 0.0, Z: -1.83652067}
+                        Position: {X: 2.17685938, Y: 1.49140489, Z: 0.47137785}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    bcb097f831436c05ad819de855c574bc: !InstancingComponent
-                        Id: d11ff608-842a-45f8-bce1-6bda525bdaf4
-                        Type: !InstancingEntityTransform
-                            Master: ref!! 49e5d37f-dbcb-4840-ac82-5aa46645c757
+                    c7a1e232b19d61c2eb2c1aae4b2d5af4: !InstanceComponent
+                        Id: 12605363-9fac-45e1-978e-93e095c5ca78
+                        Master: ref!! b23c29d5-7346-420b-8330-335045d07dcf
+        -   Folder: null
+            Entity:
+                Id: b68ccead-66f1-4b13-86f4-fb97ee735f80
+                Name: Astro Entity Transform
+                Components:
+                    fa2b457ee134effa789bd61243c0f071: !TransformComponent
+                        Id: 6bf6f93b-c717-412a-bfa2-6aa11e313db2
+                        Position: {X: 0.531176865, Y: 0.490726143, Z: -1.896521}
+                        Rotation: {X: 0.0, Y: 1.0, Z: 0.0, W: -4.371139E-08}
+                        Scale: {X: 5.0, Y: 5.0, Z: 5.0}
+                        Children: {}
+                    e02c65e6a65cbed279b560210b316d9a: !ModelComponent
+                        Id: ef12cc0e-c7f5-463f-bf7d-cba3f3a4796d
+                        Model: 9996851b-6d40-4c90-a8b7-44cd5cc4e660:AstroBoy/astroBoy_walk
+                        Materials:
+                            9a3bf7a0d79f861d739c54998a7a3610~1: 75e2b50e-2138-48ff-a2f1-19911dc4f64f:AstroBoy/Glass
+                    8ffb515231d9b4c59353fbee9ccd2cac: !StrideTransformationInstancing.AstroBoyAnimation,StrideTransformationInstancing
+                        Id: 1b141d7e-1fb6-4883-a70f-13b17d9d1db6
+                        Animations:
+                            68a1f518fc9d1874ee087ac6b236bfd4:
+                                Clip: 445dacc0-4380-4ff2-b70f-43a9bd48e46a:AstroBoy/astroBoy_walk_2
+                                BlendOperation: LinearBlend
+                                StartTime: 0.0
+                    baea96c80394dec0f5d0e4f4dd0de700: !InstancingComponent
+                        Id: 09b50993-b89e-4d3c-8736-8288c29d3f2e
+                        Type: !InstancingEntityTransform {}
         -   Folder: Sphere Instances
             Entity:
                 Id: b88e21ce-0fdd-4eb0-bad9-0dfd15c1d89f
@@ -174,21 +223,20 @@ Hierarchy:
                 Components:
                     81215229fdf37ab6946eab50082bd97b: !TransformComponent
                         Id: 83977cc4-9c3a-4eb7-afce-fd2fabd7a10d
-                        Position: {X: -1.3924017, Y: 0.0, Z: -1.83652067}
+                        Position: {X: -1.251447, Y: 0.8556681, Z: -2.45719361}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    bcb097f831436c05ad819de855c574bc: !InstancingComponent
-                        Id: 9ada2e37-7fe3-421d-bf9a-b0cee959d14b
-                        Type: !InstancingEntityTransform
-                            Master: ref!! 49e5d37f-dbcb-4840-ac82-5aa46645c757
+                    26d174addfcf8961079314b4faaceced: !InstanceComponent
+                        Id: 8f10aef9-2c22-4fcb-8d1e-bbc8229f828b
+                        Master: ref!! b23c29d5-7346-420b-8330-335045d07dcf
         -   Entity:
                 Id: ba0bacf3-e2af-4655-a659-0046c92e0d36
                 Name: Ground
                 Components:
                     7a248f04030b171f9e97238d4ee61e75: !TransformComponent
                         Id: 6d148c3d-1840-41b7-a41c-b9b11351b29f
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Position: {X: -0.5615162, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
@@ -196,13 +244,27 @@ Hierarchy:
                         Id: 35496fc8-2f34-48ef-a042-1d217e024325
                         Model: 7798fd92-c2a1-465e-ab68-476dad533c5a:Ground
                         Materials: {}
+        -   Folder: Astro Instances
+            Entity:
+                Id: c0440939-f12a-408e-a300-0e2f163b640f
+                Name: Astro Instance 01
+                Components:
+                    66fa607f7cb579c13aa28d2d26b4f7d2: !TransformComponent
+                        Id: c936ef3f-a874-42ca-bf31-a37256712770
+                        Position: {X: -2.149371, Y: 0.371239722, Z: -3.09607458}
+                        Rotation: {X: 0.0, Y: 1.0, Z: 0.0, W: -4.371139E-08}
+                        Scale: {X: 5.0, Y: 5.0, Z: 5.0}
+                        Children: {}
+                    37ebd948177158d333cc9705d744a8d5: !InstanceComponent
+                        Id: 71cf1e8d-12df-4da3-bb2a-3a10f3b0e5e0
+                        Master: ref!! 09b50993-b89e-4d3c-8736-8288c29d3f2e
         -   Entity:
                 Id: c24582ee-733f-42c1-afb2-c75a08c3b1e2
-                Name: astroBoy_walk
+                Name: Astro
                 Components:
                     fa2b457ee134effa789bd61243c0f071: !TransformComponent
                         Id: 89e3dbcf-c5aa-4c28-8f47-67e1a3b3951b
-                        Position: {X: 0.0, Y: 0.0, Z: -1.986536}
+                        Position: {X: -2.973085, Y: 0.0, Z: -1.9316802}
                         Rotation: {X: 0.0, Y: 1.0, Z: 0.0, W: -4.371139E-08}
                         Scale: {X: 5.0, Y: 5.0, Z: 5.0}
                         Children: {}
@@ -218,6 +280,20 @@ Hierarchy:
                                 Clip: 445dacc0-4380-4ff2-b70f-43a9bd48e46a:AstroBoy/astroBoy_walk_2
                                 BlendOperation: LinearBlend
                                 StartTime: 0.0
+        -   Folder: Astro Instances
+            Entity:
+                Id: dd4fbb89-c330-4adc-a54b-3575fb516092
+                Name: Astro Instance 02
+                Components:
+                    66fa607f7cb579c13aa28d2d26b4f7d2: !TransformComponent
+                        Id: 619f43c9-106f-43f0-9626-17bff9d6f01c
+                        Position: {X: 2.35756683, Y: 0.196232438, Z: -2.18121672}
+                        Rotation: {X: 0.0, Y: 1.0, Z: 0.0, W: -4.371139E-08}
+                        Scale: {X: 5.0, Y: 5.0, Z: 5.0}
+                        Children: {}
+                    37ebd948177158d333cc9705d744a8d5: !InstanceComponent
+                        Id: 1132eb24-71da-449d-85ab-1a9bc142577f
+                        Master: ref!! 09b50993-b89e-4d3c-8736-8288c29d3f2e
         -   Folder: Sphere Instances
             Entity:
                 Id: f68516a8-8c0c-485c-9f0a-778a511f6626
@@ -225,11 +301,10 @@ Hierarchy:
                 Components:
                     81215229fdf37ab6946eab50082bd97b: !TransformComponent
                         Id: 8ba39500-e878-4f85-a120-4d2f4b3e6aa8
-                        Position: {X: 1.27465034, Y: 0.534246564, Z: -1.42188847}
+                        Position: {X: 0.839180648, Y: 0.653241158, Z: -1.2054193}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
-                    bcb097f831436c05ad819de855c574bc: !InstancingComponent
-                        Id: cc911a7c-9d07-4966-b4c3-5ac271005022
-                        Type: !InstancingEntityTransform
-                            Master: ref!! 49e5d37f-dbcb-4840-ac82-5aa46645c757
+                    d104fa3d3f0769f8bb9ccb32ab8ae4a4: !InstanceComponent
+                        Id: 8a6ebdb8-3311-41a7-b9a7-1bab45759a43
+                        Master: ref!! b23c29d5-7346-420b-8330-335045d07dcf
