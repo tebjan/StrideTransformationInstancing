@@ -41,7 +41,7 @@ namespace StrideTransformationInstancing
             if (animComponent != null)
                 PlayAnimations(animComponent);
 
-            instancingMany = new InstancingUserArray();
+            instancingMany = new InstancingUserArray() { ModelTransformUsage = ModelTransformUsage.PostMultiply };
             if (Entity.Get<InstancingComponent>() == null)
             {
                 var instancingComponent = Entity.GetOrCreate<InstancingComponent>();
@@ -54,13 +54,14 @@ namespace StrideTransformationInstancing
         {
             // generate some matrices
             var offset = InstanceCount / 2;
+            var seconds = (float)Game.UpdateTime.Total.TotalSeconds;
             for (int i = 0; i < InstanceCount; i++)
             {
                 var x = i * 1 - offset;
                 var y = 0;
-                var z = (float)Math.Cos(new Vector2(x, y).Length() * 0.5f + Game.UpdateTime.Total.TotalSeconds);
+                var z = (float)Math.Cos(new Vector2(x, y).Length() * 0.5f + seconds);
 
-                instanceWorldTransformations[i] = Matrix.Translation(x * 0.5f, y, z);
+                instanceWorldTransformations[i] = Matrix.RotationY(seconds) * Matrix.Translation(x * 0.1f, y, z * 0.1f);
             }
 
             instancingMany.UpdateWorldMatrices(instanceWorldTransformations);

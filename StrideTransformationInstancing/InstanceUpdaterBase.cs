@@ -35,6 +35,7 @@ namespace StrideTransformationInstancing
         {
             // generate some matrices
             var offset = InstanceCountSqrt / 2;
+            var seconds = (float)Game.UpdateTime.Total.TotalSeconds;
             for (int i = 0; i < InstanceCountSqrt; i++)
             {
                 var col = i * InstanceCountSqrt;
@@ -42,9 +43,9 @@ namespace StrideTransformationInstancing
                 {
                     var x = i * 1 - offset;
                     var y = j * 1 - offset;
-                    var z = (float)Math.Cos(new Vector2(x, y).Length() * 0.5f + Game.UpdateTime.Total.TotalSeconds);
+                    var z = (float)Math.Cos(new Vector2(x, y).Length() * 0.5f + seconds);
 
-                    instanceWorldTransformations[col + j] = Matrix.Translation(x, y, z);
+                    instanceWorldTransformations[col + j] = Matrix.RotationY(seconds) * Matrix.Translation(x, y, z);
                 }
             }
         }

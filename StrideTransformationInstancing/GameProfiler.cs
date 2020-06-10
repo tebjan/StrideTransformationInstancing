@@ -32,7 +32,7 @@ namespace StrideTransformationInstancing
         /// Gets or set the sorting mode of the profiling entries
         /// </summary>
         [Display(1, "Sort by")]
-        public GameProfilingSorting SortingMode { get; set; } = GameProfilingSorting.ByTime;
+        public GameProfilingSorting SortingMode { get; set; } = GameProfilingSorting.ByName;
 
         /// <summary>
         /// Gets or sets the type of the profiling to display: CPU or GPU

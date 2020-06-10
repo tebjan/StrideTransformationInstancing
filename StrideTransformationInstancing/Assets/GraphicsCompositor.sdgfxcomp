@@ -92,7 +92,7 @@ RenderFeatures:
                             ShadowCasterRenderStage: ref!! 11792bee-7e74-4416-9853-348d7922cb1d
                         d59ef45dd99e49d3af3887763d153aa7: !Stride.Rendering.Shadows.LightPointShadowMapRendererCubeMap,Stride.Rendering
                             ShadowCasterRenderStage: ref!! c933749a-a2a8-488a-bd19-a0797f7820ef
-            42be209952db58294c9f06c58809b8ca*: !Stride.Engine.Rendering.InstancingRenderFeature,Stride.Engine {}
+            42be209952db58294c9f06c58809b8ca*: !Stride.Rendering.InstancingRenderFeature,Stride.Rendering {}
     28e9bf54a5adbe063f59fb17acb2723e: !Stride.Rendering.Sprites.SpriteRenderFeature,Stride.Rendering
         RenderStageSelectors:
             d74665cff080638a2439c4422e542d85: !Stride.Rendering.Sprites.SpriteTransparentRenderStageSelector,Stride.Rendering

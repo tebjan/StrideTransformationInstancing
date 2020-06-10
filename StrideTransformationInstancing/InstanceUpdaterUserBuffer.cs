@@ -28,6 +28,8 @@ namespace StrideTransformationInstancing
         // TODO: make this more easy and clear, improve instancing component to support this better
         protected override void ManageInstancingData()
         {
+            var transformUsage = (ModelTransformUsage)(((int)Game.UpdateTime.Total.TotalSeconds) % 3);
+            instancingUserBuffer.ModelTransformUsage = ModelTransformUsage.PostMultiply;
             instancingUserBuffer.InstanceCount = instanceWorldTransformations.Length;
 
             // Make sure inverse matrices are big enough
