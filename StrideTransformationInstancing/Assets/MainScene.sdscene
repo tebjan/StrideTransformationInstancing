@@ -86,7 +86,7 @@ Hierarchy:
                         Id: 49e5d37f-dbcb-4840-ac82-5aa46645c757
                         Model: 01069813-14ed-4449-86a4-1dab5e6a9d9a:Sphere
                         Materials:
-                            8f67401846e0322d002a1f7ef819090c~0: 75e2b50e-2138-48ff-a2f1-19911dc4f64f:AstroBoy/Glass
+                            8f67401846e0322d002a1f7ef819090c~0: 75e2b50e-2138-48ff-a2f1-19911dc4f64f:AstroBoy/glass
                     62d8200bf2e54684503f81df73f52e1e: !InstancingComponent
                         Id: 4a89a7e3-5f56-4108-8ded-131298b2c279
                         Type: !InstancingEntityTransform {}
@@ -129,8 +129,8 @@ Hierarchy:
                                 Size: Large
                                 DepthRange: {}
                                 PartitionMode: !LightDirectionalShadowMap.PartitionLogarithmic {}
-                                BiasParameters: {}
                                 ComputeTransmittance: false
+                                BiasParameters: {}
                         Intensity: 20.0
         -   Folder: Astro Instances
             Entity:
@@ -277,7 +277,7 @@ Hierarchy:
                         Id: ef12cc0e-c7f5-463f-bf7d-cba3f3a4796d
                         Model: 9996851b-6d40-4c90-a8b7-44cd5cc4e660:AstroBoy/astroBoy_walk
                         Materials:
-                            9a3bf7a0d79f861d739c54998a7a3610~1: 75e2b50e-2138-48ff-a2f1-19911dc4f64f:AstroBoy/Glass
+                            9a3bf7a0d79f861d739c54998a7a3610~1: 75e2b50e-2138-48ff-a2f1-19911dc4f64f:AstroBoy/glass
                             83a75bc9f202bb461f248134a5c9381b~2: 10512dae-0fc4-4048-9b21-65e0054df1eb:AstroBoy/matte black
                     8ffb515231d9b4c59353fbee9ccd2cac: !StrideTransformationInstancing.AstroBoyAnimation,StrideTransformationInstancing
                         Id: 1b141d7e-1fb6-4883-a70f-13b17d9d1db6
@@ -346,7 +346,7 @@ Hierarchy:
                         Id: 9893860d-3c96-4e8d-b6f5-24f0991628e0
                         Model: 9996851b-6d40-4c90-a8b7-44cd5cc4e660:AstroBoy/astroBoy_walk
                         Materials:
-                            92dd224c488b9ba9f3843a0f5c9985a1~1: 75e2b50e-2138-48ff-a2f1-19911dc4f64f:AstroBoy/Glass
+                            92dd224c488b9ba9f3843a0f5c9985a1~1: 75e2b50e-2138-48ff-a2f1-19911dc4f64f:AstroBoy/glass
                             b4fc1b7904a5a2838275c9552d8a0dde~2: 7073ab46-d1af-474e-b8a7-383f137c974a:MetalWave/Material
                     8ffb515231d9b4c59353fbee9ccd2cac: !StrideTransformationInstancing.AstroBoyAnimation,StrideTransformationInstancing
                         Id: 84385287-7541-403b-9cc4-b01bceb8ca49
